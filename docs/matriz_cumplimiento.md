@@ -64,7 +64,7 @@ Estados: **completo** = artefacto técnico y evidencia verificable disponibles; 
 
 - Archivo: README.md; requirements.txt; run_pipeline.py; scripts/build_report.py; docs/reproducibility.md; .github/workflows/tests.yml.
 - Respaldo: comandos exactos PowerShell/Linux, dependencias directas fijadas, semillas, pipeline que se detiene ante QA fallida y exporta evidencia; seis vistas integradas con módulos puros.
-- Evidencia: CSV/JSON/PNG, PDF borrador de ocho páginas en output/pdf/Equipo_5_Bitacora1.pdf, docs/bitacora1.md, repositorio destino y scripts/check_app.py para seis vistas. Las versiones transitivas se registran adicionalmente en requirements-lock.txt cuando se genera el entorno final.
+- Evidencia: CSV/JSON/PNG, PDF borrador de ocho páginas en output/pdf/Equipo_5_Bitacora1.pdf, docs/bitacora1.md, repositorio publicado y scripts/check_app.py para seis vistas; su ejecución real se conserva en results/app_check.json. Las versiones transitivas del entorno Windows/Python 3.13 se registran adicionalmente en requirements-lock.txt.
 - Estado: **parcial** hasta confirmar publicación, revisión del PDF y reproducción por otro integrante. La publicación web complementaria no reemplaza la entrega.
 - Validación humana: instalar desde cero, ejecutar comandos, comprobar artefactos y commit final; completar integrantes, aprobar informe, declaración y presentación de 15 minutos. Autenticación de Streamlit Community Cloud requiere al propietario.
 
