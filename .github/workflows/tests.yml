@@ -1,0 +1,22 @@
+name: Validación académica
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements.txt
+      - run: python run_pipeline.py --qa-only
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-python-${{ matrix.python }}
+          path: results/qa_results.json

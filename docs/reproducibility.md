@@ -1,0 +1,5 @@
+Desde la raíz del repositorio: crear entorno virtual, instalar requirements.txt, ejecutar `python run_pipeline.py` y después `python scripts/build_report.py`. Consultar README para comandos PowerShell y Linux/macOS. El pipeline se detiene si QA falla y guarda CSV, metadatos, resumen y dos figuras. El script del reporte genera un PDF borrador a partir de esa evidencia.
+
+Semilla experimental y diferencial: 20261105. Deben preservarse los artefactos entregados junto con el commit final. Un commit de metadatos identifica el código ejecutado, no necesariamente el commit posterior que añade los resultados. El hash SHA-256 complementa esa identificación si no había commit. Los tiempos varían entre ejecuciones; reproducibilidad significa mismo método y entradas, no tiempos idénticos.
+
+Distribución de responsabilidades y ramas en docs/team_contributions.md. No hay nombres reales ni revisiones académicas registradas todavía. La bitácora requiere entrega PDF de 4 a 8 páginas, repositorio o comprimido, declaración tecnológica y presentación del equipo. La aprobación del informe y la autenticación para publicación son tareas humanas pendientes.

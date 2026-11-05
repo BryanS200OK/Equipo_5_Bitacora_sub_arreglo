@@ -1,0 +1,13 @@
+{
+  "tests": 44,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": 44,
+  "exit_code": 0,
+  "output": "............................................                             [100%]\n44 passed in 1.98s\n",
+  "duration_s": 2.949490600032732,
+  "date": "2026-11-05T21:48:52.603731+00:00",
+  "commit": "73739a6cfe4d2a80da37862755af77de1ee2d5df",
+  "source_sha256": "8fdf0f9118ca668b903b7ee19598d25037db93bc832f53c50f81a064c158365e"
+}

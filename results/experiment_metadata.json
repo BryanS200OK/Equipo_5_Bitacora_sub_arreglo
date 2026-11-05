@@ -1,0 +1,35 @@
+{
+  "python": "3.13.3",
+  "os": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "dependencies": {
+    "streamlit": "1.67.0",
+    "pandas": "3.1.1",
+    "matplotlib": "3.10.3",
+    "pytest": "9.2.0"
+  },
+  "date": "2026-11-05T21:48:54.900471+00:00",
+  "seed": 20261105,
+  "commit": "73739a6cfe4d2a80da37862755af77de1ee2d5df",
+  "source_sha256": "8fdf0f9118ca668b903b7ee19598d25037db93bc832f53c50f81a064c158365e",
+  "clock_resolution_s": 1e-07,
+  "configuration": {
+    "sizes": [
+      100,
+      200,
+      400,
+      800,
+      1600,
+      3200
+    ],
+    "repetitions": 5,
+    "range": [
+      -100,
+      100
+    ],
+    "timeout": 90,
+    "warmup": "una ejecución por algoritmo",
+    "order": "alternado por par"
+  },
+  "limitations": "Una máquina, una distribución uniforme; ruido de SO, reloj y calentamiento; tiempo incluye validación y salida."
+}

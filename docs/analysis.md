@@ -1,0 +1,5 @@
+Hipótesis teórica: al duplicar n, el factor de crecimiento temporal se aproxima a 2 para una solución lineal y a 4 para una cuadrática, cuando domina el término asintótico. Los cocientes observados se calculan sobre medianas reales, sin imponer esos valores. Las figuras normal y log-log se generan del CSV, no de curvas inventadas.
+
+El equipo debe revisar results/summary.csv y las figuras antes de redactar su conclusión. Si los datos lo respaldan, puede usar: «Los resultados son consistentes con el comportamiento teórico en el rango de tamaños evaluado». Debe precisar excepciones y posibles efectos de ruido, reloj, calentamiento, planificación del sistema y costo de salida. Un experimento finito no demuestra matemáticamente la complejidad. La distribución uniforme usada no representa todas las entradas posibles.
+
+El PDF generado incorpora la tabla y las gráficas locales archivadas. Cualquier nueva ejecución exige regenerarlo antes de discutir sus cifras. La conclusión final pertenece al equipo; este documento conserva la interpretación como pendiente de validación humana.

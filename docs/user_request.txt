@@ -1,0 +1,781 @@
+# PROMPT MAESTRO — DESARROLLO Y DESPLIEGUE DE AUDRITHM
+
+Actúa como un equipo de ingeniería de software compuesto por un arquitecto de soluciones, desarrollador senior Python, especialista en algoritmos, QA Automation Engineer, ingeniero DevOps, diseñador UX/UI y asesor técnico de documentación académica.
+
+Tu misión es construir, probar, documentar y preparar para producción una aplicación web llamada **AudRithm — Laboratorio de Análisis de Algoritmos**.
+
+No quiero únicamente una explicación, un prototipo visual o fragmentos de código. Quiero un proyecto real, funcional, modular, ejecutable, versionado en GitHub y desplegable públicamente.
+
+Si cuentas con acceso autorizado a GitHub y Streamlit Community Cloud, realiza el despliegue y verifica la URL pública. Si no tienes acceso, deja la aplicación completamente preparada y explícame únicamente los pasos de autenticación y publicación que debo completar.
+
+## 1. Contexto académico
+
+Este proyecto corresponde a una actividad de una maestría en tecnología relacionada con el análisis y diseño de algoritmos.
+
+La entrega inmediata es la **Bitácora 1**, cuyo algoritmo asignado es:
+
+**Subarreglo de suma máxima (Maximum Subarray Problem).**
+
+Debemos implementar y comparar:
+
+- Algoritmo de Kadane: O(n).
+- Algoritmo de fuerza bruta optimizada mediante sumas acumuladas: O(n²).
+
+El proyecto debe demostrar correctitud, analizar complejidad, realizar pruebas automatizadas y ejecutar experimentos reproducibles.
+
+También queremos construir una aplicación web que permita visualizar los algoritmos, las pruebas y las gráficas mediante un enlace público.
+
+IMPORTANTE: la aplicación web es una mejora de presentación. No reemplaza los entregables académicos obligatorios.
+
+El nombre AudRithm se utilizará como marca del aplicativo y podrá evolucionar posteriormente hacia una plataforma inteligente de auditoría de algoritmos. No implementar un agente de IA real en esta primera versión salvo que sea estrictamente necesario y esté separado del núcleo académico.
+
+## 2. Stack tecnológico obligatorio
+
+Utilizar:
+
+- Python 3.11 o versión estable compatible.
+- Streamlit para la aplicación web.
+- Pandas para procesamiento de resultados.
+- NumPy si aporta valor real.
+- Matplotlib para visualización.
+- Pytest para pruebas.
+- Git y GitHub para versionamiento.
+- Streamlit Community Cloud para hosting.
+- CSV como formato principal de resultados experimentales.
+- JSON opcional para metadatos.
+
+No utilizar React, Next.js, FastAPI, Supabase ni bases de datos en el MVP.
+
+No requerir login, cuentas de usuario ni autenticación para acceder al laboratorio.
+
+Mantener dependencias mínimas y compatibles con el despliegue gratuito.
+
+## 3. Diseño visual
+
+Crear una aplicación profesional con estética de plataforma tecnológica académica.
+
+Identidad visual:
+
+- Nombre: AudRithm.
+- Subtítulo: Laboratorio de Análisis de Algoritmos.
+- Verde esmeralda como color principal.
+- Verde oscuro para el menú lateral.
+- Fondo blanco o gris muy claro para el área principal.
+- Tarjetas con bordes redondeados.
+- Tipografía moderna y legible.
+- Gráficas limpias y profesionales.
+- Iconografía consistente.
+- Diseño responsive para escritorio, tablet y móvil.
+
+La interfaz debe estar en español.
+
+Evitar una aplicación que parezca una demostración improvisada de Streamlit.
+
+Personalizar mediante configuración nativa de Streamlit y CSS compatible, evitando depender de selectores internos frágiles.
+
+La navegación debe contener seis vistas:
+
+1. Inicio.
+2. Algoritmos.
+3. Pruebas QA.
+4. Experimentos.
+5. Resultados.
+6. Reporte.
+
+Incluir acceso al repositorio GitHub y una sección con información del proyecto y del equipo.
+
+## 4. Vista 1 — Inicio
+
+Diseñar un dashboard inicial con:
+
+- Logotipo o identificador visual AudRithm.
+- Presentación del proyecto.
+- Objetivo académico.
+- Explicación breve del problema.
+- Tarjetas de indicadores.
+- Algoritmos disponibles.
+- Estado de las pruebas.
+- Estado de los experimentos.
+- Acceso rápido a los módulos.
+- Flujo visual del proceso.
+
+Flujo:
+
+Entrada → Algoritmos → Validación → Experimentación → Análisis → Reporte.
+
+Los indicadores deben provenir de datos reales.
+
+No mostrar pruebas exitosas, tiempos o resultados inventados.
+
+Si todavía no se han ejecutado, mostrar "Pendiente" o "Sin datos".
+
+## 5. Vista 2 — Laboratorio de algoritmos
+
+Esta es la pantalla central del aplicativo.
+
+Implementar:
+
+### Entrada de datos
+
+- Campo para ingresar un arreglo de números enteros.
+- Ejemplo precargado: [-2, 1, -3, 4, -1, 2, 1, -5, 4].
+- Botón para generar un arreglo aleatorio.
+- Selector de tamaño.
+- Selector de rango de valores.
+- Semilla opcional.
+- Validación de entrada.
+
+### Ejecución
+
+Permitir seleccionar:
+
+- Kadane O(n).
+- Fuerza bruta O(n²).
+- Ambos algoritmos.
+
+Botón "Ejecutar análisis".
+
+### Resultados
+
+Mostrar:
+
+- Suma máxima.
+- Subarreglo seleccionado.
+- Índices de inicio y fin.
+- Resultado de cada algoritmo.
+- Comparación de resultados.
+- Confirmación de equivalencia.
+- Tiempo de ejecución individual cuando sea medible.
+
+Para el arreglo de ejemplo, la suma máxima debe ser 6 y el subarreglo [4, -1, 2, 1].
+
+Mostrar visualmente el arreglo, destacando los elementos que pertenecen al subarreglo óptimo.
+
+### Explicación educativa
+
+Agregar pestañas:
+
+- Ejecución.
+- Análisis teórico.
+- Complejidad.
+- Invariante.
+
+Explicar cómo Kadane actualiza el mejor subarreglo terminado en la posición actual y el mejor valor global.
+
+Opcionalmente, implementar una tabla paso a paso con:
+
+- Índice.
+- Elemento.
+- Mejor suma terminada en la posición.
+- Mejor suma global.
+
+Esta tabla debe derivarse de una traza real del algoritmo.
+
+### Reglas del motor
+
+- Los algoritmos deben ser funciones Python puras, independientes de Streamlit.
+- No modificar el arreglo original.
+- Definir explícitamente el contrato para arreglos vacíos.
+- Para esta versión, un arreglo vacío debe generar ValueError.
+- Soportar arreglos con todos los elementos negativos.
+- Soportar arreglos con todos los elementos positivos.
+- Soportar ceros, duplicados y un solo elemento.
+- No permitir resultados incorrectos derivados de inicializar el máximo en cero.
+- Establecer una política determinista de desempate para subarreglos con igual suma.
+- Devolver una estructura consistente con suma, índices y subarreglo.
+- Mantener una función simple que devuelva solamente la suma máxima si facilita las pruebas académicas.
+
+## 6. Implementación de algoritmos
+
+Crear un módulo independiente:
+
+src/audrithm/algorithms.py
+
+Implementar:
+
+1. kadane(arr)
+2. brute_force(arr)
+
+La implementación de fuerza bruta debe usar dos bucles anidados y una suma acumulada para garantizar O(n²), no una implementación O(n³) que recalcule cada subarreglo desde cero.
+
+Kadane debe recorrer el arreglo una vez y utilizar memoria auxiliar O(1), excluyendo la representación del subarreglo devuelto.
+
+Documentar:
+
+- Precondiciones.
+- Postcondiciones.
+- Invariante.
+- Correctitud.
+- Complejidad temporal.
+- Complejidad espacial.
+- Política de desempate.
+
+Mantener separada la lógica académica de la presentación.
+
+El integrante 1 es responsable de este módulo. No atribuir su implementación a otro integrante.
+
+## 7. Vista 3 — Pruebas QA
+
+Crear un módulo de pruebas con Pytest.
+
+Casos obligatorios:
+
+- Solo positivos.
+- Solo negativos.
+- Valores mixtos.
+- Todos ceros.
+- Un elemento.
+- Arreglo vacío.
+- Valores repetidos.
+- Suma máxima al inicio.
+- Suma máxima al final.
+- Suma máxima en el centro.
+- Múltiples subarreglos óptimos.
+- Arreglos aleatorios reproducibles.
+
+Implementar pruebas diferenciales:
+
+Comparar el resultado de Kadane con el resultado de fuerza bruta para múltiples arreglos generados con semilla fija.
+
+La interfaz debe permitir:
+
+- Ejecutar las pruebas de manera controlada.
+- Visualizar total ejecutado.
+- Visualizar aprobadas y fallidas.
+- Mostrar detalles de errores.
+- Mostrar duración de ejecución.
+- Consultar el resumen de validación.
+
+No fabricar un porcentaje de cobertura.
+
+Si se implementa cobertura, utilizar pytest-cov y mostrar solamente los valores medidos.
+
+Evitar ejecutar comandos arbitrarios provenientes del usuario.
+
+La ejecución de Pytest desde la interfaz debe limitarse a una suite fija y controlada, con tiempo máximo y salida capturada. Si el hosting no permite hacerlo de forma segura, mostrar resultados previamente generados por el pipeline, claramente identificados con su fecha y commit.
+
+## 8. Vista 4 — Experimentos
+
+Construir un laboratorio de medición reproducible.
+
+Requisitos obligatorios:
+
+- Mínimo seis tamaños de entrada.
+- Tamaños duplicados progresivamente.
+- Cinco repeticiones por tamaño y algoritmo.
+- Semilla aleatoria fija.
+- Documentación del entorno.
+- Registro de tiempos.
+- Exportación CSV.
+- Mediana por tamaño.
+- Comparación de los dos algoritmos.
+
+Proponer inicialmente tamaños:
+
+100, 200, 400, 800, 1600 y 3200.
+
+Validar que sean adecuados para el entorno.
+
+Medir con time.perf_counter_ns().
+
+Generar los arreglos antes de iniciar cada medición, de modo que el costo de generar datos no forme parte del tiempo del algoritmo.
+
+Utilizar exactamente los mismos arreglos para comparar ambos algoritmos en cada tamaño y repetición.
+
+Controlar posibles efectos del orden de ejecución.
+
+No introducir operaciones de interfaz, escritura de archivos ni generación de gráficas dentro del intervalo medido.
+
+Exportar:
+
+- experiment_results.csv
+- experiment_metadata.json
+
+El CSV debe contener, como mínimo:
+
+- algorithm
+- input_size
+- repetition
+- seed
+- elapsed_ns
+
+El JSON debe contener:
+
+- Versión de Python.
+- Sistema operativo.
+- Procesador, si está disponible.
+- Versiones de dependencias.
+- Fecha del experimento.
+- Configuración.
+- Semilla.
+- Identificador de commit cuando esté disponible.
+
+Si los tiempos son demasiado pequeños o inestables, incorporar medición mediante conteo de operaciones y explicar la decisión.
+
+En el hosting público, evitar experimentos excesivamente pesados que puedan bloquear la aplicación.
+
+Incluir límites de tamaño, timeout y mensajes de progreso.
+
+Los resultados oficiales deben poder reproducirse localmente.
+
+## 9. Vista 5 — Resultados y análisis
+
+Implementar visualizaciones reales a partir del CSV.
+
+Crear:
+
+### Gráfica 1
+
+Tiempo de ejecución frente al tamaño de entrada en escala normal.
+
+### Gráfica 2
+
+Tiempo de ejecución frente al tamaño de entrada en escala log-log.
+
+### Tabla comparativa
+
+Mostrar:
+
+- Tamaño n.
+- Mediana Kadane.
+- Mediana fuerza bruta.
+- Razón T(2n)/T(n) para Kadane.
+- Razón T(2n)/T(n) para fuerza bruta.
+
+Explicar que teóricamente:
+
+- Kadane presenta crecimiento lineal O(n).
+- Fuerza bruta presenta crecimiento cuadrático O(n²).
+- Para un comportamiento aproximadamente lineal, T(2n)/T(n) tiende a 2.
+- Para un comportamiento aproximadamente cuadrático, T(2n)/T(n) tiende a 4.
+
+No afirmar que las mediciones reales necesariamente producirán razones exactas de 2 o 4.
+
+No inventar resultados.
+
+No afirmar que un experimento demuestra matemáticamente la complejidad.
+
+El análisis debe utilizar expresiones académicamente correctas como:
+
+"Los resultados son consistentes con el comportamiento teórico en el rango de tamaños evaluado".
+
+Mostrar advertencias sobre ruido experimental, resolución del reloj, calentamiento y condiciones del entorno.
+
+Permitir descargar gráficas y resultados.
+
+## 10. Vista 6 — Reporte académico
+
+Crear una pantalla que organice la información de la Bitácora 1.
+
+Debe incluir estas ocho secciones, en este orden:
+
+1. Especificación del problema.
+2. Demostración de correctitud.
+3. Análisis de costo.
+4. Implementación y pruebas.
+5. Experimento reproducible.
+6. Contraste entre teoría y evidencia.
+7. Uso y verificación de IA.
+8. Reproducibilidad.
+
+### Demostración de correctitud
+
+Incluir una propuesta de desarrollo del invariante de Kadane:
+
+- Inicialización.
+- Mantenimiento.
+- Terminación.
+
+Demostrar la relación entre la mejor suma terminada en una posición y el mejor valor global.
+
+Incluir un argumento de terminación.
+
+La demostración debe quedar claramente identificada como material de trabajo que el equipo debe revisar, comprender y validar independientemente antes de entregarlo.
+
+### Análisis matemático
+
+Incluir:
+
+- Operación dominante.
+- Suma o recurrencia correspondiente.
+- Mejor caso.
+- Peor caso.
+- Caso promedio bajo supuestos explícitos.
+- Cotas asintóticas.
+- Constantes c y n0 para una cota formal justificada.
+
+No inventar una demostración del caso promedio sin supuestos suficientes.
+
+### Reporte final
+
+Preparar contenido y recursos para elaborar:
+
+Equipo_5_Bitacora1.pdf
+
+Extensión objetivo: 4 a 8 páginas.
+
+Incluir las gráficas reales, la tabla experimental, el análisis y las evidencias.
+
+El reporte final debe ser revisado y aprobado por el equipo.
+
+No marcar el PDF como definitivo mientras falten resultados, revisión académica o información real de los integrantes.
+
+## 11. Reproducibilidad
+
+Crear un README.md técnico completo.
+
+Debe contener:
+
+- Descripción del proyecto.
+- Objetivo.
+- Arquitectura.
+- Requisitos.
+- Versión de Python.
+- Instalación.
+- Creación del entorno virtual.
+- Instalación de dependencias.
+- Ejecución local.
+- Ejecución de pruebas.
+- Ejecución de experimentos.
+- Generación de gráficas.
+- Interpretación de resultados.
+- Despliegue.
+- Estructura del repositorio.
+- Semillas utilizadas.
+- Limitaciones.
+- Contribuciones del equipo.
+
+Incluir comandos exactos para Windows PowerShell y, cuando corresponda, Linux/macOS.
+
+Crear requirements.txt con versiones compatibles.
+
+No utilizar dependencias innecesarias.
+
+## 12. Organización del equipo y GitHub
+
+El proyecto tiene cinco integrantes.
+
+Distribución:
+
+### Integrante 1 — Desarrollo algorítmico
+
+Responsable de:
+
+- Kadane.
+- Fuerza bruta.
+- Contratos de entrada y salida.
+- Documentación del invariante.
+- Análisis técnico del algoritmo.
+
+Rama propuesta:
+
+feature/algorithms
+
+### Integrante 2 — QA y Testing
+
+Responsable de:
+
+- Pruebas unitarias.
+- Pruebas diferenciales.
+- Casos límite.
+- Evidencia de validación.
+
+Rama:
+
+feature/testing
+
+### Integrante 3 — Experimentación
+
+Responsable de:
+
+- Generación de arreglos.
+- Semillas.
+- Repeticiones.
+- Mediciones.
+- CSV y metadatos.
+
+Rama:
+
+feature/experiments
+
+### Integrante 4 — Análisis y visualización
+
+Responsable de:
+
+- Pandas.
+- Medianas.
+- Gráficas.
+- Razones de crecimiento.
+- Contraste de resultados.
+
+Rama:
+
+feature/visualization
+
+### Integrante 5 — Integración y despliegue
+
+Responsable de:
+
+- Orquestación.
+- Interfaz Streamlit.
+- Integración.
+- README.
+- Dependencias.
+- Despliegue.
+- Revisión de pull requests.
+
+Rama:
+
+feature/integration
+
+IMPORTANTE:
+
+No simular identidades, commits, autorías, contribuciones ni pull requests.
+
+No utilizar cuentas ajenas.
+
+No realizar commits en nombre de integrantes sin autorización.
+
+Si se necesita crear una implementación inicial completa para que el proyecto funcione, mantenerla identificada como implementación de referencia asistida por IA, pendiente de revisión y aportes reales de cada integrante.
+
+No hacer force push.
+
+No sobrescribir trabajo existente.
+
+No fusionar ramas de otros integrantes sin revisión y autorización.
+
+Configurar GitHub Actions para ejecutar las pruebas automáticamente en cada pull request, si el repositorio y los permisos lo permiten.
+
+## 13. Estructura esperada
+
+Crear una estructura similar a:
+
+audrithm/
+  app.py
+  requirements.txt
+  README.md
+  .gitignore
+  .streamlit/
+    config.toml
+  src/
+    audrithm/
+      __init__.py
+      algorithms.py
+      experiment.py
+      visualization.py
+      reporting.py
+  pages/
+    1_Inicio.py
+    2_Algoritmos.py
+    3_Pruebas_QA.py
+    4_Experimentos.py
+    5_Resultados.py
+    6_Reporte.py
+  tests/
+    test_algorithms.py
+    test_differential.py
+  data/
+    sample_inputs.csv
+  results/
+    .gitkeep
+  docs/
+    bitacora1.md
+    correctness.md
+    complexity.md
+    ai_usage.md
+    team_contributions.md
+  .github/
+    workflows/
+      tests.yml
+
+Puedes ajustar la estructura para evitar duplicación o problemas con el sistema de navegación de Streamlit.
+
+El archivo app.py debe funcionar como punto de entrada real y no crear una séptima pantalla redundante.
+
+El código debe ser modular, mantenible y documentado.
+
+## 14. Orquestación
+
+Crear un comando de ejecución integral que permita:
+
+1. Ejecutar las pruebas.
+2. Detener el proceso si fallan.
+3. Ejecutar los experimentos.
+4. Generar las gráficas.
+5. Guardar resultados y metadatos.
+6. Emitir un resumen.
+
+La orquestación debe poder ejecutarse sin iniciar la interfaz web.
+
+No iniciar automáticamente experimentos costosos al abrir la aplicación pública.
+
+## 15. Despliegue
+
+Preparar el aplicativo para Streamlit Community Cloud.
+
+Verificar:
+
+- requirements.txt.
+- app.py.
+- Configuración de Streamlit.
+- Rutas relativas.
+- Dependencias compatibles.
+- Ausencia de archivos locales obligatorios no incluidos.
+- Manejo de errores.
+- Límites de memoria.
+- Límites de ejecución.
+- Navegación entre páginas.
+- Descargas.
+- Ausencia de secretos en el repositorio.
+
+Publicar el aplicativo si existe acceso autorizado.
+
+Preferencia de nombre:
+
+audrithm.streamlit.app
+
+Si no está disponible, proponer otra URL.
+
+No afirmar que el despliegue fue exitoso sin verificarlo.
+
+No inventar enlaces.
+
+Si el despliegue requiere autenticación, detenerse únicamente en ese paso y solicitar la intervención del propietario.
+
+## 16. Seguridad y calidad
+
+Aplicar buenas prácticas:
+
+- Validación de entrada.
+- Límites de tamaño.
+- Manejo de excepciones.
+- Sin eval() ni exec() sobre entradas del usuario.
+- Sin ejecución arbitraria de código.
+- Sin credenciales en GitHub.
+- Sin datos personales innecesarios.
+- Sin dependencias obsoletas conocidas.
+- Sin resultados académicos ficticios.
+- Sin afirmaciones de cobertura o rendimiento no verificadas.
+- Sin ejecución automática de procesos pesados.
+- Sin acceso de escritura arbitrario al sistema de archivos desde la interfaz.
+
+Mantener la lógica matemática completamente independiente de la interfaz.
+
+## 17. Transparencia del uso de IA
+
+El proyecto se desarrolla con asistencia de Codex.
+
+Crear docs/ai_usage.md con:
+
+- Herramienta utilizada.
+- Modelo o versión, si está disponible.
+- Propósito de utilización.
+- Prompts relevantes.
+- Código o explicaciones generadas con asistencia.
+- Evidencias verificadas independientemente.
+- Resultados descartados o corregidos.
+
+No inventar verificaciones humanas.
+
+Registrar como pendientes las verificaciones que todavía no haya realizado el equipo.
+
+La IA puede apoyar implementación, documentación y pruebas, pero la demostración de correctitud y las conclusiones académicas deben ser comprendidas, verificadas y defendidas por los estudiantes.
+
+## 18. Criterios de aceptación
+
+No considerar el proyecto terminado hasta verificar:
+
+- La aplicación inicia correctamente.
+- Las seis vistas funcionan.
+- Los algoritmos devuelven resultados correctos.
+- Kadane funciona con arreglos completamente negativos.
+- La fuerza bruta utiliza O(n²).
+- Las pruebas pasan.
+- Las pruebas diferenciales comparan resultados reales.
+- Los experimentos usan seis tamaños y cinco repeticiones.
+- La semilla es fija.
+- Los resultados se exportan correctamente.
+- Las medianas se calculan a partir de datos reales.
+- Las dos gráficas se generan correctamente.
+- Las razones T(2n)/T(n) se calculan correctamente.
+- El README permite reproducir los experimentos.
+- El informe académico contiene las ocho secciones.
+- La documentación de IA está preparada.
+- La aplicación funciona localmente.
+- El repositorio no contiene secretos.
+- La aplicación está preparada para despliegue.
+- La URL pública funciona, si el despliegue fue autorizado y completado.
+
+## 19. Forma de trabajo
+
+Antes de comenzar:
+
+1. Inspecciona el repositorio y el entorno actual.
+2. Identifica si el proyecto existe o debe crearse.
+3. No sobrescribas archivos existentes sin evaluar su contenido.
+4. Presenta un plan breve de implementación.
+5. Identifica dependencias y permisos necesarios.
+
+Después, implementa el proyecto de forma incremental.
+
+No te limites a entregar recomendaciones.
+
+Crea los archivos reales.
+
+Ejecuta las pruebas.
+
+Corrige los errores encontrados.
+
+Comprueba que la aplicación arranca.
+
+Genera datos experimentales reales en el entorno disponible, dejando constancia de sus características y limitaciones.
+
+Verifica que el código pueda ejecutarse de manera reproducible.
+
+Finalmente, entrega un resumen con:
+
+- Archivos creados.
+- Funcionalidades implementadas.
+- Pruebas ejecutadas y resultados.
+- Experimentos realizados.
+- Problemas encontrados y corregidos.
+- Estado de GitHub.
+- Estado del despliegue.
+- URL pública verificada, si existe.
+- Acciones pendientes de autorización.
+- Tareas que deben revisar los integrantes.
+- Elementos académicos pendientes de validación humana.
+
+## 20. Prioridades
+
+Trabaja en este orden:
+
+**Prioridad 1 — Entrega académica**
+
+Algoritmos, correctitud, pruebas, experimentos, gráficas, reproducibilidad y documentación.
+
+**Prioridad 2 — Aplicación web**
+
+Las seis vistas y su integración con los módulos reales.
+
+**Prioridad 3 — Publicación**
+
+GitHub, despliegue público y validación del enlace.
+
+**Prioridad 4 — Mejoras**
+
+Animaciones, mejoras visuales, reportes ampliados y funcionalidades futuras.
+
+No sacrificar los requisitos académicos por elementos decorativos.
+
+## INSTRUCCIÓN FINAL
+
+Construye AudRithm como un aplicativo académico real y desplegable, no como un mockup.
+
+Mantén el código limpio, la arquitectura modular, los resultados verificables y la documentación reproducible.
+
+No inventes datos, contribuciones ni resultados.
+
+Cuando necesites una autenticación o autorización externa, solicita mi intervención y continúa con las tareas que no dependan de ella.
+
+Comienza inspeccionando el repositorio y proponiendo el plan de implementación. Después ejecuta el desarrollo hasta completar todas las tareas técnicamente posibles.
