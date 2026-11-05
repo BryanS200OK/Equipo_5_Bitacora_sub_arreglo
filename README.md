@@ -30,6 +30,8 @@ python3.13 -m venv .venv
 
 No hace falta activar el entorno ni cambiar la política de ejecución de PowerShell. `python run_pipeline.py --qa-only` genera únicamente evidencia QA. El pipeline completo detiene la ejecución al fallar QA, mide, exporta y genera gráficas. No inicia Streamlit ni ejecuta experimentos al abrir la web.
 
+requirements-lock.txt registra el entorno Windows/Python 3.13 observado, incluidas herramientas de inspección. Para despliegue o Python 3.11 usar requirements.txt: el resolvedor elegirá dependencias transitivas compatibles (por ejemplo, una versión de NumPy compatible con Python 3.11).
+
 La comprobación funcional adicional se ejecuta con `python scripts/check_app.py` (seis vistas y ejemplo real). En entornos de desarrollo empaquetados que activen `global.developmentMode`, añadir `--global.developmentMode false` al comando de Streamlit si se configura un puerto explícito.
 
 ## Arquitectura y estructura
@@ -72,3 +74,5 @@ Después de publicar: comprobar URL desde una sesión pública, las seis vistas,
 docs/team_contributions.md conserva las cinco responsabilidades propuestas, sin atribuir aportes ficticios. El responsable propuesto de algorithms.py es el integrante 1. Los nombres están pendientes. docs/ai_usage.md y docs/user_request.txt registran herramienta, solicitud, verificaciones y descartes. El nivel propuesto de uso tecnológico es Ámbar, sujeto a declaración del equipo. No se implementa agente IA, login ni base de datos.
 
 El PDF de asignación distingue Bitácora 1 (subarreglo) del proyecto integrador del equipo 5 (árbol de expansión mínima). La entrega requiere PDF de 4 a 8 páginas, repositorio o comprimido, declaración tecnológica y presentación. La demostración y conclusión deben ser comprendidas, validadas y defendidas por estudiantes. El borrador no está aprobado ni es definitivo.
+
+La trazabilidad de los ocho requisitos está en docs/matriz_cumplimiento.md y se consulta también desde Reporte. El estado externo verificado, los bloqueos de autenticación y los pasos de publicación están en docs/publication_status.md.
